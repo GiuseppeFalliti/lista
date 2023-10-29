@@ -1,4 +1,5 @@
 package Lista;
+import java.util.ArrayList;
 public class Lista<T>{
     private Object[] list;
     private int count;
@@ -43,6 +44,39 @@ public class Lista<T>{
     public Object get(int index){
         return list[index];
     }
+
+
+    public void PrintAllArray(){
+        for (Object lista : list) {
+            System.out.println(lista);
+        }
+
+    }
+
+    public boolean isEmpy(){
+        if (list==null) {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public void  contains(Object obj){
+        for (int index = 0; index < list.length; index++) {
+            if (list!=null && list[index].equals(obj)) 
+                System.out.println(true); 
+            else
+                System.out.println(false); 
+            
+            
+        }
+        
+
+    }
+    
+
 
 
 
