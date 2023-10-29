@@ -12,7 +12,7 @@ public class Lista<T>{
         if (count >= list.length) { 
             
             Object[] newList = new Object[list.length * 2];
-            System.arraycopy(list, 0, newList, 0, list.length);//metodo copiare il contenuto di un array in un altro array
+            System.arraycopy(list, 0, newList, 0, list.length);//metodo copiare il contenuto di un array in un altro array.
             list = newList;
         }
 
