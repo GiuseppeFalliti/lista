@@ -1,5 +1,4 @@
 package Lista;
-import java.util.ArrayList;
 public class Lista<T>{
     private Object[] list;
     private int count;
@@ -72,7 +71,7 @@ public class Lista<T>{
             
             
         }
-        
+
 
     }
     
