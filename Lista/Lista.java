@@ -1,3 +1,4 @@
+package Lista;
 public class Lista<T>{
     private Object[] list;
     private int count;
