@@ -8,7 +8,7 @@ public class Lista<T>{
         count = 0;
     }
 
-    public void add(T obj) {
+    public void add(T element) {
         
         if (count >= list.length) { 
             
@@ -17,14 +17,23 @@ public class Lista<T>{
             list = newList;
         }
 
-        list[count] = obj;
+        list[count] = element;
         count++;
     }
 
 
-    public void remove(int index,T obj){
+    public void remove(int index,T element){
         if (index>=0 && index<list.length){
             list[index]=null;            
+        }
+       count--;
+    }
+
+    public void remove(T element){
+        for (int index = 0; index < list.length; index++) {
+            if (list[index]!=null && list[index].equals(element)) {
+                list[index]=null;   
+            }
         }
        count--;
     }
@@ -52,19 +61,19 @@ public class Lista<T>{
 
     }
 
-    public boolean isEmpy(){
+    public void isEmpy(){
         if (list==null) {
-            return true;
+            System.out.println(true); 
         }
         else{
-            return false;
+            System.out.println(false); 
         }
 
     }
 
-    public void  contains(Object obj){
+    public void  contains(T element){
         for (int index = 0; index < list.length; index++) {
-            if (list!=null && list[index].equals(obj)) 
+            if (list!=null && list[index].equals(element)) 
                 System.out.println(true); 
             else
                 System.out.println(false); 
@@ -72,6 +81,16 @@ public class Lista<T>{
             
         }
 
+    }
+
+    public void set(int index, T element){
+        if (list[index]!=null) {
+            list[index]=element;
+        }
+        else{
+            System.out.println("la cella era gia vuota");
+        }
+        
 
     }
     
