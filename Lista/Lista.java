@@ -24,18 +24,30 @@ public class Lista<T>{
 
     public void remove(int index,T element){
         if (index>=0 && index<list.length){
-            list[index]=null;            
+            if(list[index]!=null && list[index].equals(element)){
+                list[index]=null; 
+                count--;
+            }
+            else{
+                System.err.println("l'elemento non corrisponde");
+            }
+
+                       
         }
-       count--;
+       
     }
 
     public void remove(T element){
         for (int index = 0; index < list.length; index++) {
             if (list[index]!=null && list[index].equals(element)) {
                 list[index]=null;   
+                count--;
+            }
+            else{
+                System.err.println("l'elemento non corrisponde");
             }
         }
-       count--;
+       
     }
 
     public void clear(){
@@ -61,8 +73,18 @@ public class Lista<T>{
 
     }
 
-    public void isEmpy(){
+    public void isEmpyLista(){
         if (list==null) {
+            System.out.println(true); 
+        }
+        else{
+            System.out.println(false); 
+        }
+
+    }
+    
+    public void isEmpyCella(int index){
+        if (list[index]==null) {
             System.out.println(true); 
         }
         else{
