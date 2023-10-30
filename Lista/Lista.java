@@ -69,7 +69,7 @@ public class Lista<T>{
     public void PrintAllArray(){
         for (Object lista : list) {
             System.out.println(lista);
-        }
+        }      
 
     }
 
@@ -82,7 +82,7 @@ public class Lista<T>{
         }
 
     }
-    
+
     public void isEmpyCella(int index){
         if (list[index]==null) {
             System.out.println(true); 
