@@ -7,6 +7,7 @@ public class Rubrica {
     public ArrayList<Contatto> contatti; // array dinamico 
     public ArrayList<Contatto> arrayFavo; // array dinamico favoriti
     public static String regexNumber = "\\d{2} \\d{10}";
+    public static String regexNome = "^[A-Z|a-z][a-z]*";
 
     /**
      * costruttore inizializza gli array dinamici.
@@ -18,13 +19,13 @@ public class Rubrica {
 
     public void addContact(String nome, String cognome, String numero, int mese, int anno, int giorno) {
         try {
-            if (Pattern.matches(regexNumber, numero)) {
+            if (Pattern.matches(regexNome, nome) && Pattern.matches(regexNome, cognome)   && Pattern.matches(regexNumber, numero)) {
                 DateTime dataToStringa = new DateTime(mese, anno, giorno);
                 Contatto c1 = new Contatto(nome, cognome, numero, dataToStringa);
                 contatti.add(c1);
                 JOptionPane.showMessageDialog(null, c1);
             } else {
-                JOptionPane.showMessageDialog(null, "NUMERO ERRATO");
+                JOptionPane.showMessageDialog(null, "NUMERO O NOME  ERRATO");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,14 +101,14 @@ public class Rubrica {
     }
     
 
-    public Contatto editContactFavorites(String nome, String cognome, String numbers) {
+    public void editContactFavorites(String nome, String cognome, String numbers) {
         for (int i = 0; i < arrayFavo.size(); i++) {
             if (arrayFavo.get(i) != null && arrayFavo.get(i).getNome().equalsIgnoreCase(nome)
                     && arrayFavo.get(i).getCognome().equalsIgnoreCase(cognome)) {
                 if (Pattern.matches(regexNumber, numbers)) {
                     Contatto c2 = new Contatto(nome, cognome, numbers);
                     arrayFavo.set(i, c2);
-                    return c2;
+                    JOptionPane.showMessageDialog(null,c2) ;
                 } else {
                     JOptionPane.showMessageDialog(null, "numero errato!");
                 }
@@ -115,7 +116,6 @@ public class Rubrica {
                 JOptionPane.showMessageDialog(null, "contatto non esistente");
             }
         }
-        return null;
     }
 
     public void printAllFavitesContacts() {

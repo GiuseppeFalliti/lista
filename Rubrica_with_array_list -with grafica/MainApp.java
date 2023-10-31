@@ -55,16 +55,14 @@ public class MainApp extends JFrame{
                 buttonPanel.add(button);
         }
 
-        /**
+        
+       
+        
+    
+            /**
              * creo un void che contiene la creazione del messaggio da mostrare.
              */
-        private void showMessage(String message, String title, int messageType) {
-            JOptionPane.showMessageDialog(this, message, title, messageType);
-        }
-    
-        /*
-         * metodo per aggiungere un contatto.
-         */
+
         private void addContact() {
             String nomeContatto = JOptionPane.showInputDialog("Inserisci il nome del contatto");
         String cognomeContatto = JOptionPane.showInputDialog("Inserisci il cognome del contatto");
@@ -76,7 +74,7 @@ public class MainApp extends JFrame{
         int stringMonth = Integer.parseInt(month);
         int stringYears = Integer.parseInt(year);
         r1.addContact(nomeContatto, cognomeContatto, numeroContatto, stringMonth, stringYears, stringday);
-        showMessage("Il contatto è stato aggiunto con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
+        
         }
         
         /*
@@ -87,7 +85,7 @@ public class MainApp extends JFrame{
             String subNameRubrics = JOptionPane.showInputDialog("nome");
             String subCognomeRubrics = JOptionPane.showInputDialog("cognome");
             r1.subbNumber(subNameRubrics, subCognomeRubrics);
-            showMessage("Il contatto è stato eliminato con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
+            
         }
         
         /*
@@ -131,7 +129,6 @@ public class MainApp extends JFrame{
             String nome = JOptionPane.showInputDialog("inserisci il nome del contatto");
             String cognome = JOptionPane.showInputDialog("inserisci il cognome del contatto");
             r1.AddfavitesContacts(nome, cognome);
-            showMessage("Il contatto è stato aggiunto con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
         }
     
         /*
@@ -142,13 +139,7 @@ public class MainApp extends JFrame{
             String cognome = JOptionPane.showInputDialog("inserisci il cognome del contatto preferito da modificare:");
             String numers = JOptionPane.showInputDialog("inserisci il nuovo numero del contatto preferito");
             System.out.println();
-            Contatto contatto = r1.editContactFavorites(nome, cognome, numers);
-            if (contatto != null) {
-                JOptionPane.showMessageDialog(this, contatto.toString(), "Dettagli del contatto",
-                        JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "contatto non trovato");
-            }
+             r1.editContactFavorites(nome, cognome, numers);
         }
     
         /*
@@ -166,9 +157,8 @@ public class MainApp extends JFrame{
         }
         
         public static void main(String[] args) {
-            SwingUtilities.invokeLater(() -> { //avvia il tutto in safe mode
                 new MainApp();
-            });
+            
         }
         }
         
