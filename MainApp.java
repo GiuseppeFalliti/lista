@@ -42,8 +42,7 @@ public class MainApp extends JFrame{
             }
             
             /**
-             * creo un void che contiene la creazione del bottone con tutte le sue caratteristiche per 
-             * non essere ripetitivi.
+             * creo un void che contiene la creazione del bottone con tutte le sue caratteristiche.
              * @param label //il nome del bottone 
              * @param listener // oggetto listener che richiama il metodo della classe rubrica con il void actionPerformed
              */
@@ -55,11 +54,17 @@ public class MainApp extends JFrame{
                 button.addActionListener(listener);
                 buttonPanel.add(button);
         }
-    
+
+        /**
+             * creo un void che contiene la creazione del messaggio da mostrare.
+             */
         private void showMessage(String message, String title, int messageType) {
             JOptionPane.showMessageDialog(this, message, title, messageType);
         }
     
+        /*
+         * metodo per aggiungere un contatto.
+         */
         private void addContact() {
             String nomeContatto = JOptionPane.showInputDialog("Inserisci il nome del contatto");
         String cognomeContatto = JOptionPane.showInputDialog("Inserisci il cognome del contatto");
@@ -73,7 +78,10 @@ public class MainApp extends JFrame{
         r1.addContact(nomeContatto, cognomeContatto, numeroContatto, stringMonth, stringYears, stringday);
         showMessage("Il contatto è stato aggiunto con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
         }
-    
+        
+        /*
+         * metodo per eliminare un contatto.
+         */
         private void deleteContact() {
             JOptionPane.showMessageDialog(this, "inserisci il nome e il cognome del contatto da eliminare");
             String subNameRubrics = JOptionPane.showInputDialog("nome");
@@ -81,18 +89,27 @@ public class MainApp extends JFrame{
             r1.subbNumber(subNameRubrics, subCognomeRubrics);
             showMessage("Il contatto è stato eliminato con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
         }
-    
+        
+        /*
+         * metodo per cercare  un contatto passando la data di aggiunta.
+         */
         private void searchContactByDate() {
             String dataContact = JOptionPane.showInputDialog("inserisci la data: ");
             r1.searchNomeAndCognome(dataContact);
         }
     
+        /*
+         * metodo per cercare un contatto passando il nome e cognome.
+         */
         private void searchContactByName() {
         String nomeContattoesistente = JOptionPane.showInputDialog("inserire il nome del contatto");
         String cognomeContattoesistente = JOptionPane.showInputDialog("inserisci il cognome del contatto");
         JOptionPane.showMessageDialog(this, r1.Numero(nomeContattoesistente, cognomeContattoesistente));
         }
     
+        /*
+         * metodo per modificare un contatto.
+         */
         private void editContact() {
             String nome = JOptionPane.showInputDialog("inserisci il nome del contatto da modificare:");
             String cognome = JOptionPane.showInputDialog("inserisci il cognome del contatto da modificare:");
@@ -107,6 +124,9 @@ public class MainApp extends JFrame{
             }
         }
     
+        /*
+         * metodo per aggiungere un contatto nei preferiti.
+         */
         private void addToFavorites() {
             String nome = JOptionPane.showInputDialog("inserisci il nome del contatto");
             String cognome = JOptionPane.showInputDialog("inserisci il cognome del contatto");
@@ -114,6 +134,9 @@ public class MainApp extends JFrame{
             showMessage("Il contatto è stato aggiunto con successo!","conferma!",JOptionPane.INFORMATION_MESSAGE);
         }
     
+        /*
+         * metodo per modificare un contatto preferito.
+         */
         private void editFavoritesContact() {
             String nome = JOptionPane.showInputDialog("inserisci il nome del contatto preferito da modificare:");
             String cognome = JOptionPane.showInputDialog("inserisci il cognome del contatto preferito da modificare:");
@@ -128,10 +151,16 @@ public class MainApp extends JFrame{
             }
         }
     
+        /*
+         * metodo per stampare tutti i  contatti preferiti.
+         */
         private void printFavoritesContacts() {
             r1.printAllFavitesContacts();
         }
     
+        /*
+         * metodo per stampare tutti i  contatti.
+         */
         private void printAllContacts() {
             r1.printAllContact();
         }
