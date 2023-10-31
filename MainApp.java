@@ -3,19 +3,20 @@
     import java.awt.event.ActionListener;
 
 
-public class Mainapp extends JFrame{
+public class MainApp extends JFrame{
    
     private JPanel buttonPanel;
     private Rubrica r1;
 
-        public  Mainapp() {
+        public  MainApp() {
             r1 = new Rubrica();
             setTitle("Rubrica");
             setSize(400, 400);
             setLocationRelativeTo(null);
-    
-            buttonPanel = new JPanel();
-            buttonPanel.setLayout(new GridLayout(0, 1));
+            buttonPanel = new JPanel(new GridLayout(0, 1));
+            setBackground(new Color(230, 230, 230));
+            add(buttonPanel);
+              
             
             /*
              * richiamo del metodo  createButton che crea i bottoni e associandoli ai metodi con l'actionListener
@@ -31,7 +32,12 @@ public class Mainapp extends JFrame{
             createButton("Print All Contacts", e -> printAllContacts());
             createButton("Exit", e -> System.exit(0));
     
-            add(buttonPanel);
+           
+
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //gestisce la chiusura della applicazione.
+            pack(); //gestisce la dimensione e lo spazio di tutti i compinenti della finestra.
+            
+            setLocationRelativeTo(null);
             setVisible(true);
             }
             
@@ -42,12 +48,12 @@ public class Mainapp extends JFrame{
              * @param listener // oggetto listener che richiama il metodo della classe rubrica con il void actionPerformed
              */
             private  void  createButton(String label, ActionListener listener) {
-            JButton button = new JButton(label);
-            button.setBackground(new Color(80, 80, 80));
-            button.setForeground(new Color(160, 160, 160));
-            button.setFont(new Font("Segoe UI", Font.BOLD, 15));
-            button.addActionListener(listener);
-            buttonPanel.add(button);
+                JButton button = new JButton(label);
+                button.setBackground(new Color(50, 50, 50));
+                button.setForeground(Color.WHITE);
+                button.setFont(new Font("Segoe UI", Font.BOLD, 15));
+                button.addActionListener(listener);
+                buttonPanel.add(button);
         }
     
         private void showMessage(String message, String title, int messageType) {
@@ -132,7 +138,7 @@ public class Mainapp extends JFrame{
         
         public static void main(String[] args) {
             SwingUtilities.invokeLater(() -> { //avvia il tutto in safe mode
-                new Mainapp();
+                new MainApp();
             });
         }
         }
