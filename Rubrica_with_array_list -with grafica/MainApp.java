@@ -67,7 +67,7 @@ public class MainApp extends JFrame {
         int stringMonth = Integer.parseInt(month);
         int stringYears = Integer.parseInt(year);
         r1.addContact(nomeContatto, cognomeContatto, numeroContatto, stringMonth, stringYears, stringday);
-        showMessage("Il contatto è stato aggiunto con successo!", "conferma!", JOptionPane.INFORMATION_MESSAGE);
+        
     }
 
     private void deleteContact() {

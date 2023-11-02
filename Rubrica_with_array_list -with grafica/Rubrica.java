@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class Rubrica {
-    public ArrayList<Contatto> contatti; // array dinamico 
+    public ArrayList<Contatto> contatti; // array dinamico
     public ArrayList<Contatto> arrayFavo; // array dinamico favoriti
     public static String regexNumber = "\\d{10}";
 
@@ -19,19 +19,27 @@ public class Rubrica {
 
     public void addContact(String nome, String cognome, String numero, int mese, int anno, int giorno) {
         try {
-            if (Pattern.matches(regexNumber, numero)) {
-                LocalDate data=LocalDate.of(anno, mese, giorno);
-                Contatto c1 = new Contatto(nome, cognome, numero,data);
-                contatti.add(c1);
-                JOptionPane.showMessageDialog(null, c1);
-           } else {
+            if (!Pattern.matches(regexNumber, numero)) {
                 JOptionPane.showMessageDialog(null, "NUMERO ERRATO");
+                return;
             }
+    
+            for (Contatto contatto : contatti) {
+                if (contatto != null && contatto.getNumero_telefono().equals(numero)) {
+                    JOptionPane.showMessageDialog(null, "Il numero di telefono esiste già.");
+                    return;
+                }
+            }
+    
+            LocalDate data = LocalDate.of(anno, mese, giorno);
+            Contatto c1 = new Contatto(nome, cognome, numero, data);
+            contatti.add(c1);
+            JOptionPane.showMessageDialog(null, c1);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    
 
     public void searchNomeAndCognome(String data) {
         try {
@@ -45,7 +53,6 @@ public class Rubrica {
         }
     }
 
-
     public void subbNumber(String nome, String cognome) {
         for (int i = 0; i < contatti.size(); i++) {
             if (contatti.get(i) != null && contatti.get(i).getNome().equalsIgnoreCase(nome)
@@ -55,10 +62,9 @@ public class Rubrica {
                 return;
             }
         }
-        
+
         JOptionPane.showMessageDialog(null, "contatto non esistente");
     }
-
 
     public String Numero(String nome, String cognome) {
         for (int i = 0; i < contatti.size(); i++) {
@@ -69,7 +75,6 @@ public class Rubrica {
         }
         return null;
     }
-
 
     public Contatto editContact(String nome, String cognome, String numbers) {
         for (int i = 0; i < contatti.size(); i++) {
@@ -87,20 +92,20 @@ public class Rubrica {
         return null;
     }
 
-
     public void AddfavitesContacts(String nome, String cognome) {
         try {
             for (int i = 0; i < contatti.size(); i++) {
-                if (contatti.get(i).getNome().equalsIgnoreCase(nome) && contatti.get(i).getCognome().equalsIgnoreCase(cognome)) {
+                if (contatti.get(i).getNome().equalsIgnoreCase(nome)
+                        && contatti.get(i).getCognome().equalsIgnoreCase(cognome)) {
                     arrayFavo.add(contatti.get(i));
-                    JOptionPane.showMessageDialog(null, contatti.get(i), "Contatto aggiunto nei preferiti", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, contatti.get(i), "Contatto aggiunto nei preferiti",
+                            JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "contatto non trovato");
         }
     }
-    
 
     public Contatto editContactFavorites(String nome, String cognome, String numbers) {
         for (int i = 0; i < arrayFavo.size(); i++) {
