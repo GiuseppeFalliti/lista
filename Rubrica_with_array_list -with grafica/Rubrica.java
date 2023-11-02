@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -6,8 +7,7 @@ import javax.swing.JOptionPane;
 public class Rubrica {
     public ArrayList<Contatto> contatti; // array dinamico 
     public ArrayList<Contatto> arrayFavo; // array dinamico favoriti
-    public static String regexNumber = "\\d{2} \\d{10}";
-    public static String regexNome = "^[A-Z|a-z][a-z]*";
+    public static String regexNumber = "\\d{10}";
 
     /**
      * costruttore inizializza gli array dinamici.
@@ -19,13 +19,13 @@ public class Rubrica {
 
     public void addContact(String nome, String cognome, String numero, int mese, int anno, int giorno) {
         try {
-            if (Pattern.matches(regexNome, nome) && Pattern.matches(regexNome, cognome)   && Pattern.matches(regexNumber, numero)) {
-                DateTime dataToStringa = new DateTime(mese, anno, giorno);
-                Contatto c1 = new Contatto(nome, cognome, numero, dataToStringa);
+            if (Pattern.matches(regexNumber, numero)) {
+                LocalDate data=LocalDate.of(anno, mese, giorno);
+                Contatto c1 = new Contatto(nome, cognome, numero,data);
                 contatti.add(c1);
                 JOptionPane.showMessageDialog(null, c1);
-            } else {
-                JOptionPane.showMessageDialog(null, "NUMERO O NOME  ERRATO");
+           } else {
+                JOptionPane.showMessageDialog(null, "NUMERO ERRATO");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,6 +55,7 @@ public class Rubrica {
                 return;
             }
         }
+        
         JOptionPane.showMessageDialog(null, "contatto non esistente");
     }
 
@@ -101,14 +102,14 @@ public class Rubrica {
     }
     
 
-    public void editContactFavorites(String nome, String cognome, String numbers) {
+    public Contatto editContactFavorites(String nome, String cognome, String numbers) {
         for (int i = 0; i < arrayFavo.size(); i++) {
             if (arrayFavo.get(i) != null && arrayFavo.get(i).getNome().equalsIgnoreCase(nome)
                     && arrayFavo.get(i).getCognome().equalsIgnoreCase(cognome)) {
                 if (Pattern.matches(regexNumber, numbers)) {
                     Contatto c2 = new Contatto(nome, cognome, numbers);
                     arrayFavo.set(i, c2);
-                    JOptionPane.showMessageDialog(null,c2) ;
+                    return c2;
                 } else {
                     JOptionPane.showMessageDialog(null, "numero errato!");
                 }
@@ -116,6 +117,7 @@ public class Rubrica {
                 JOptionPane.showMessageDialog(null, "contatto non esistente");
             }
         }
+        return null;
     }
 
     public void printAllFavitesContacts() {

@@ -1,15 +1,17 @@
+import java.time.LocalDate;
 public class Contatto {
 
     private String nome; // nome
     private String cognome; // cognome
     private String numero_telefono; // numero di telefono
-    private DateTime data; // data
+    private LocalDate dataNascita;
 
-    public Contatto(String nome, String cognome, String numero_telefono, DateTime data) { // costruttore with object
+
+     public Contatto(String nome, String cognome, String numero_telefono, LocalDate dataNascita) { // costruttore with object
         this.nome = nome;
         this.cognome = cognome;
         this.numero_telefono = numero_telefono;
-        this.data = data;
+        this.dataNascita = dataNascita;
 
     }
 
@@ -26,12 +28,12 @@ public class Contatto {
 
     }
 
-    public DateTime getData() {
-        return data;
+    public LocalDate getData() {
+        return dataNascita;
     }
 
-    public void setData(DateTime data) {
-        this.data = data;
+    public void setData(LocalDate dataNascita) {
+        this.dataNascita = dataNascita;
     }
 
     public String getCognome() {
@@ -71,12 +73,20 @@ public class Contatto {
         String stampa = "cognome: " + cognome + "\n";
         stampa += "nome: " + nome + "\n";
         stampa += "numero telefono: " + numero_telefono + "\n";
-        if (data != null) {
-            stampa += "data add contact: " + data.toString() + "\n";
+        if (dataNascita != null) {
+            stampa += "data add contact: " + dataNascita.toString() + "\n";
         } else {
             stampa += "data add contact: N/A\n";
         }
         return stampa;
+    }
+
+    @Override 
+    public boolean equals(Object o){
+        if(this==o) return true;
+        if (o == null || getClass() != o.getClass()) 
+        return false;
+        return false;
     }
 
 }
