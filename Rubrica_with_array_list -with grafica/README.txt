@@ -14,13 +14,14 @@ Scaricare il file zip Rubrica aprire la cartella eseguire il file MainApp.
                                             COLLABORATORS:
 
 Usufruito della classe DateTime creata da Patric Pintescul.
+Collaboratore Xu Anqi.
 
                                             LICENZE:
                                             
 
 MIT License
 
-Copyright (c) 2023 Giuseppe Falliti
+Copyright (c) 2023 Giuseppe Falliti & Xu Anqi.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
