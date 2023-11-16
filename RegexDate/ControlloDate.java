@@ -1,5 +1,4 @@
 import java.util.regex.Pattern;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -20,10 +19,21 @@ public class ControlloDate{
         this.month= Integer.parseInt(splitDate[1]);
         this.day= Integer.parseInt(splitDate[0]);
 
-        if(){
-
+        if(this.day<=DAYS[this.month-1] ){
+            System.out.println("days existed");
         }
 
+        else{
+            System.out.println("days not existed");
+        }
+
+        if(this.years%4==0 && this.years%400==0 && this.years%100!=0){
+            System.out.println("years bisestile");
+        }
+        else{
+            System.out.println("years not bisestile");
+        }
+    
         System.out.println("data valida:" + date);
                 
     }
