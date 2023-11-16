@@ -29,6 +29,6 @@ public class ControlloDate {
             System.out.println("Anno non bisestile");
         }
 
-        System.out.println("Data valida: " + date);
+        System.out.println("Data valida : " + date);
     }
 }
