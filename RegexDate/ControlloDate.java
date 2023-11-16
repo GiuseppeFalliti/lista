@@ -1,5 +1,9 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+/**
+ * @author Giuseppe Falliti & Riccardo Ponzano.
+ * @version 1.0
+ */
 
 public class ControlloDate {
     private LocalDate date;
