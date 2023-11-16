@@ -2,6 +2,10 @@ import java.util.regex.Pattern;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+ /**
+ * @author Giuseppe Falliti & Riccardo Ponzano.
+ * @version 1.0
+*/
 public class ControlloDate{
     int years,month,day;
     private LocalDate date;
