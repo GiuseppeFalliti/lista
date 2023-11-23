@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 public class ControlloDate {
     private LocalDate date;
     private final String regex = "^(0[1-9]|[1-9]|[12][0-9]|3[01])\\/(0[1-9]|[1-9]|1[0-2])\\/(\\d{4})$";
-    private final int[] DAYS = { 31, 29, 31, 30, 31, 30, 31, 30, 30, 31, 30, 31 };
+    private final int[] DAYS = {31, 29, 31, 30, 31, 30, 31, 30, 30, 31, 30, 31 };
     String days;
     String years;
 
@@ -121,7 +121,6 @@ public class ControlloDate {
                 System.out.println("data valida;" + days + "/" + "dicembre" + "/" + years);
                 break;
         }
-        // System.out.println("Data valida: " + date);
 
     }
 }
