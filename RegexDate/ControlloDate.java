@@ -37,6 +37,8 @@ public class ControlloDate {
 
         if (day <= maxDaysOfMonth) {
             System.out.println("Giorno valido");
+            System.out.println("data valida: " + date.getDayOfMonth() + "/" + date.getMonth() + "/" + date.getYear());
+
         } else {
             System.out.println("Giorno non valido");
             return;
@@ -48,7 +50,9 @@ public class ControlloDate {
             System.out.println("Anno non bisestile");
         }
 
-        switch (month) {
+
+        /*
+         * switch (month) {
             case 1:
                 days = Integer.toString(day);
                 years = Integer.toString(year);
@@ -121,6 +125,8 @@ public class ControlloDate {
                 System.out.println("data valida;" + days + "/" + "dicembre" + "/" + years);
                 break;
         }
+         */
+        
 
     }
 }
