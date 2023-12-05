@@ -3,7 +3,7 @@ public class Mainapp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ControlloDate data = new ControlloDate();
-        System.out.println("inserire la data:");
+        System.out.println("inserire la data nel seguente formato dd--MM-yyyy:");
         data.addData(sc.nextLine());
     }
 }
