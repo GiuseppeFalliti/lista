@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 /**
  * @author Giuseppe Falliti & Riccardo Ponzano.
@@ -24,7 +25,9 @@ public class ControlloDate {
         if (!data.matches(regex)) {
             System.out.println("Formato data non valido");
             return;
+
         }
+        
         try {
             /**
              * creazione data e formattata.
@@ -33,6 +36,8 @@ public class ControlloDate {
             int day = date.getDayOfMonth();
             int month = date.getMonthValue();
             int year = date.getYear();
+        
+           
 
             /**
              * controllo mese
@@ -84,10 +89,27 @@ public class ControlloDate {
             day = day + 1;
             System.out.println("data successiva->" + day + "--" + month + "-" + year);
 
+         
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        
+
+    }  
+        /**
+         * metodo per contatare la data. 
+         */
+    public void plus(String data,int plus ){
+           
+        date=LocalDate.parse(data, DateTimeFormatter.ofPattern("dd--MM-yyyy"));
+        date.plusMonths(plus);
+        System.out.println(date.toString());
+       
+
 
     }
+    
 
 }
